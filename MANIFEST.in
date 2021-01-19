@@ -1,0 +1,2 @@
+include klippy/chelper/*.c
+include klippy/chelper/*.h
