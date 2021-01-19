@@ -1,0 +1,39 @@
+Source: klipper
+Maintainer: Kevin O'Connor <kevin@koconnor.net>
+Uploaders: Dongjin Kim <tobetter@gmail.com>
+Section: utils
+Priority: optional
+Build-Depends: debhelper (>=9),
+	python2,
+	python-setuptools,
+	pypy,
+	pypy-setuptools,
+	dh-python,
+	dh-systemd,
+	gcc-arm-none-eabi,
+	libnewlib-arm-none-eabi,
+	libnewlib-dev,
+	build-essential,
+	libc6-dev,
+	gcc-avr,
+	avr-libc
+Standards-Version: 3.9.5
+X-Python-Version: >= 2.7
+Vcs-Browser: https://github.com/tobetter/klipper.git
+Vcs-Git: https://github.com/tobetter/klipper.git
+
+Package: klipper
+Architecture: any
+Depends: ${misc:Depends}, ${python:Depends},
+	curl,
+	gcc-aarch64-linux-gnu,
+	python2-dev,
+	libffi-dev
+Description: Klipper Host software
+ ...
+
+Package: klipper-mcu
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Klipper MCU firmware
+ ...

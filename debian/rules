@@ -1,0 +1,35 @@
+#!/usr/bin/make -f
+
+export PYBUILD_DESTDIR_pypy=debian/klipper
+
+define firmware
+	make distclean
+	echo CONFIG_MACH_$(1)=y | tr -d '[[:space:]]' \
+		> $(shell pwd)/.config && make olddefconfig
+	TOPDIR=$(shell pwd) make
+	mkdir -p $(shell pwd)/firmware/$(1)
+	cp out/$(2) $(shell pwd)/firmware/$(1)/$(3)
+endef
+
+%:
+	dh $@ --with=python2 --buildsystem=pybuild --with=systemd
+
+override_dh_auto_build:
+	dh_auto_build
+	$(call firmware,LINUX,klipper.elf,klipper_mcu)
+	$(call firmware,LPC176X,klipper.bin,FIRMWARE.BIN)
+	$(call firmware,at90usb1286,klipper.elf.hex,klipper.elf.hex)
+	$(call firmware,at90usb646,klipper.elf.hex,klipper.elf.hex)
+	$(call firmware,atmega1280,klipper.elf.hex,klipper.elf.hex)
+	$(call firmware,atmega1284p,klipper.elf.hex,klipper.elf.hex)
+	$(call firmware,atmega168,klipper.elf.hex,klipper.elf.hex)
+	$(call firmware,atmega2560,klipper.elf.hex,klipper.elf.hex)
+	$(call firmware,atmega328,klipper.elf.hex,klipper.elf.hex)
+	$(call firmware,atmega328p,klipper.elf.hex,klipper.elf.hex)
+	$(call firmware,atmega32u4,klipper.elf.hex,klipper.elf.hex)
+	$(call firmware,atmega644p,klipper.elf.hex,klipper.elf.hex)
+
+override_dh_auto_install:
+	dh_auto_install
+	dh_systemd_enable || true
+	dh_systemd_start || true

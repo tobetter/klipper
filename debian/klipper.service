@@ -1,0 +1,14 @@
+[Unit]
+Description=Klipper service
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=python2 /usr/lib/pypy/dist-packages/klippy/klippy.py \
+	/etc/klippy_config/printer.cfg \
+	-l /tmp/klippy.log \
+	-a /tmp/klippy_uds
