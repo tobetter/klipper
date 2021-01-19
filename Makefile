@@ -4,6 +4,8 @@
 #
 # This file may be distributed under the terms of the GNU GPLv3 license.
 
+TOPDIR=$(PWD)
+
 # Output directory
 OUT=out/
 
@@ -91,10 +93,10 @@ $(OUT)board-link: $(KCONFIG_CONFIG)
 	$(Q)echo "#$(CONFIG_BOARD_DIRECTORY)" > $@.temp
 	$(Q)if ! cmp -s $@.temp $@; then rm -f $(OUT)*.d $(patsubst %,$(OUT)%/*.d,$(dirs-y)) ; mv $@.temp $@ ; fi
 	$(Q)rm -f $(OUT)board
-	$(Q)ln -sf $(PWD)/src/$(CONFIG_BOARD_DIRECTORY) $(OUT)board
+	$(Q)ln -sf $(TOPDIR)/src/$(CONFIG_BOARD_DIRECTORY) $(OUT)board
 	$(Q)mkdir -p $(OUT)board-generic
 	$(Q)rm -f $(OUT)board-generic/board
-	$(Q)ln -sf $(PWD)/src/generic $(OUT)board-generic/board
+	$(Q)ln -sf $(TOPDIR)/src/generic $(OUT)board-generic/board
 
 include $(OUT)board-link
 
