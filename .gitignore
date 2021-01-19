@@ -7,3 +7,4 @@ klippy/.version
 
 .pybuild/
 dist
+firmware

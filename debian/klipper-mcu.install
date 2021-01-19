@@ -1,0 +1,2 @@
+firmware/*			/usr/share/klipper/firmware/
+scripts/klipper-mcu		/etc/init.d/
