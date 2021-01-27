@@ -6,7 +6,7 @@ DEFAULT_CONFIG=generic-bigtreetech-skr-v1.3.cfg
 ## Install required Python packages
 
 if [ ! `which pip` ]; then
-	curl https://bootstrap.pypa.io/get-pip.py --output /tmp/get-pip.py
+	curl https://bootstrap.pypa.io/2.7/get-pip.py --output /tmp/get-pip.py
 	python2 /tmp/get-pip.py
 fi
 
