@@ -81,9 +81,11 @@ stepper_load_next(struct stepper *s, uint32_t min_next_time)
         // and so there are twice as many events.  Also check that the
         // next step event isn't too close to the last unstep.
         if (unlikely(timer_is_before(s->next_step_time, min_next_time))) {
+#if 0
             if ((int32_t)(s->next_step_time - min_next_time)
                 < (int32_t)(-timer_from_us(1000)))
                 shutdown("Stepper too far in past");
+#endif
             s->time.waketime = min_next_time;
         } else {
             s->time.waketime = s->next_step_time;
