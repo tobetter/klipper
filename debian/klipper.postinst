@@ -6,11 +6,11 @@ DEFAULT_CONFIG=generic-bigtreetech-skr-v1.3.cfg
 ## Install required Python packages
 
 if [ ! `which pip2` ]; then
-	curl https://bootstrap.pypa.io/2.7/get-pip.py --output /tmp/get-pip.py
+	curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output /tmp/get-pip.py
 	python2 /tmp/get-pip.py
 fi
 
-/usr/local/bin/pip install -r /usr/share/klipper/klippy-requirements.txt
+python2 -m pip install -r /usr/share/klipper/klippy-requirements.txt
 
 ## Default printer configuration
 mkdir -p ${KLIPPER_CONFIG_PATH}
