@@ -11,6 +11,7 @@ if [ ! `which pip2` ]; then
 fi
 
 python2 -m pip install -r /usr/share/klipper/klippy-requirements.txt
+python2 -m pip install numpy matplotlib
 
 ## Default printer configuration
 mkdir -p ${KLIPPER_CONFIG_PATH}
