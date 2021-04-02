@@ -1,4 +1,5 @@
 config/*			/usr/share/klipper/config/
+docs/*				/usr/share/klipper/docs/
 scripts/klippy-requirements.txt	/usr/share/klipper/
 scripts/klipper			/etc/init.d/
 scripts/calibrate_shaper.py	/usr/share/klipper/scripts/
