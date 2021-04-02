@@ -28,7 +28,8 @@ Depends: ${misc:Depends}, ${python:Depends},
 	curl,
 	gcc-aarch64-linux-gnu,
 	python2-dev,
-	libffi-dev
+	libffi-dev,
+	usbutils
 Description: Klipper Host software
  ...
 
