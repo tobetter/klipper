@@ -1,2 +1,3 @@
 include klippy/chelper/*.c
 include klippy/chelper/*.h
+include klippy/extras/display/*.cfg
